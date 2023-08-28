@@ -1,0 +1,45 @@
+<header>
+    <div class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size: 25px; margin-left: 20px; cursor: pointer;" class="fas fa-shipping-fast">
+                &nbsp;
+            </i>
+            <strong style="cursor: pointer;">Apnikart</strong>
+            <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="searchProd" (keyup)="search($event)"
+                    placeholder="Search product...">
+            </div>
+            <span class="class fas fa-search search-icon"></span>
+        </div>
+        <button data-bs-placement="bottom" title="Check Cart" routerLink="/cart" class="btn btn-primary" style="margin-left: 500px;">
+            <i style="color: white;font-size: 25px;" class="fas fa-cart-plus"></i>
+            <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+        </button>
+        <!-- Button trigger modal -->
+        <button data-placement="bottom" title="Log Out" type="button" class="btn btn-primary" style=" margin-right: 10px;" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-sign-out" aria-hidden="true" style="font-size:25px"></i>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Log out</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to log out of the website?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" onclick="window.location.href = 'login'">Log Out</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

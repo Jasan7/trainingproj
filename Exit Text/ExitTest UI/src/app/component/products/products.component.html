@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img src="https://img.icons8.com/dusk/64/000000/grocery-shelf.png"/>
+                <h6>All Products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-electronics-home-appliance-flaticons-lineal-color-flat-icons-6.png" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('Jewellery')">
+                <img src="https://img.icons8.com/external-microdots-premium-microdot-graphic/64/000000/external-jewel-christmas-new-year-vol2-microdots-premium-microdot-graphic.png"/>
+                <h6>Jewellery</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('Clothing')">
+                <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-fashion-sewing-flaticons-lineal-color-flat-icons-3.png"/>
+                <h6>Fashion</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCat | filter: searchKey:'pname'">
+            <div class="card col-md-3 col-lg-4 col-xl-3 col-sm-6">
+                <img src="{{item.pimage}}" alt="">
+                <h5 style="white-space: nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.pname}}</h5>
+                <h6>{{item.pbrand}}</h6>
+                <p style="white-space: nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.pdescription}}</p>
+                <p><strong>Price: </strong>${{item.pprice}}</p>
+                <button class="btn btn-primary" (click)="addtocart(item)">Add to Cart</button>
+            </div>
+        </ng-container>
+    </div>
+</div>

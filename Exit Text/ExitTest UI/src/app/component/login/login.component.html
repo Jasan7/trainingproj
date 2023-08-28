@@ -1,0 +1,65 @@
+<section class="gradient-custom-3 h-100 gradient-form" style="background-color: transparent;">
+    <div class="container py-1 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-1 mx-md-5">
+  
+                  <div class="text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                      style="width: 145px;" alt="logo">
+                    <h4 class="mt-1 mb-4 pb-1">ApniKart</h4>
+                  </div>
+  
+                  <form #loginform="ngForm" (ngSubmit)="loginUser()">
+
+                    <div class="form-group mb-4">
+                      <label class="form-label" for="email">Email</label>
+                      <input type="email" name="email" class="form-control"
+                        placeholder="Enter your email address" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  #email="ngModel"
+                        [class.is-invalid]="email.invalid && email.touched"
+                        />
+                        <div *ngIf="email.errors && (email.invalid && email.touched)">
+                            <small class="text-danger" *ngIf="email.errors?.['required']">Email is required!</small>
+                            <small class="text-danger" *ngIf="email.errors?.['pattern']">Please enter a valid email address</small>
+                        </div>  
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="password">Password</label>
+                      <input type="password" name="password" class="form-control" 
+                      [(ngModel)]="user.password" placeholder="Enter your password" required #password="ngModel"
+                      [class.is-invalid]="password.invalid && password.touched"
+                      />
+                      <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required!</small>
+                    </div>
+                    <small style="display: flex; align-items: center; justify-content: center; color: red;">{{msg}}</small>
+  
+                    <div class="text-center pt-1 mb-4 pb-1">
+                      <button [disabled]="loginform.form.invalid" class="btn btn-primary submit btn-block gradient-custom-2 mb-2" type="submit">Log
+                        in</button>
+                    </div>                    
+                  </form>
+                  <div class="d-flex align-items-center justify-content-center pb-4">
+                    <p class="mb-0 me-2">Don't have an account?</p>
+                    <button (click)="register()" type="button" class="btn btn-outline-danger">Create new</button>
+                  </div>
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">We are more than just a company</h4>
+                  <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

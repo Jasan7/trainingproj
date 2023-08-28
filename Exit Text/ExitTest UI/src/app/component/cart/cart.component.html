@@ -1,0 +1,116 @@
+<header>
+    <div class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size: 25px; margin-left: 20px; cursor: pointer;" class="fas fa-shipping-fast">
+                &nbsp;
+            </i>
+            <strong style="cursor: pointer;">Apnikart</strong>
+        </div>
+        <button class="btn btn-primary" style=" margin-right: 20px;">
+            <i style="font-size: 25px;" class="fas fa-cart-plus"></i>
+            <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+        </button>
+    </div>
+</header>
+<ng-container *ngIf="products.length != 0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let item of products; let i = index">
+                            <td style="width: 8%;">{{i+1}}</td>
+                            <td style="width: 12%;">{{item.pname}}</td>
+                            <td><img style="width: 120px;" src="{{item.pimage}}" alt=""></td>
+                            <td style="width: 25%; font-size: small;">{{item.pdescription}}</td>
+                            <td style="width: 12%;">${{item.pprice }}</td>
+                            <td style="width: 12%;">{{item.quantity}}</td>
+                            <th style="width: 10%;">${{item.total }}</th>
+                            <td style="width: 12%;">
+                                <button class="btn btn-outline-danger" (click)="removeItem(item)" data-toggle="tooltip"
+                                    data-placement="right" title="Remove Item"><i class="fas fa-trash-alt"></i></button>
+                                <button type="button" class="btn btn-outline-info mx-2" data-placement="top"
+                                    title="Check Deliverability" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i></button>
+
+                                <!-- Small modal -->
+
+                                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+                                    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog bd-example-modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Check deliverability</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="form-inline" [formGroup]="cartForm" #cartform="ngForm"
+                                                    (ngSubmit)="pincodeCheck()">
+                                                    <input formControlName="pinc" class="form-control mb-2 mr-sm-2"
+                                                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                        type="number" maxlength="6" name="pinc" required
+                                                        placeholder="Enter 6 digit Pincode" [(ngModel)]="pincode.pin"
+                                                        min="100000" max="999999">
+                                                    <small
+                                                        style='display: flex; align-items: center; justify-content: center; color: red;'>{{msg}}</small>
+                                                    <small
+                                                        style='display: flex; align-items: center; justify-content: center; color: green;'>{{msg1}}
+                                                        {{msg3}}</small>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" [disabled]="cartform.form.invalid"
+                                                            class="btn btn-primary my-1">Check</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="emptycart()" class="btn btn-sm btn-danger">Empty Cart</button></td>
+                            <td><button routerLink="/dashboard" class="btn btn-sm btn-primary">Shop more</button></td>
+                            <td><button class="btn btn-sm btn-success" disabled>Checkout</button></td>
+                            <td><strong>Grand Total: ${{total | number:'1.2-2'}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</ng-container>
+<ng-container *ngIf="products.length == 0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+            <img src="https://img.freepik.com/free-vector/man-shopping-supermarket_74855-7612.jpg?w=740&t=st=1660046005~exp=1660046605~hmac=30a35a4608c480c3ed8c2018cba7399b2954eb4a728391f6b0f67f078785c007"
+                alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add items to it now</h6>
+            <button routerLink="/dashboard" class="btn btn-primary">Shop Now</button>
+        </div>
+    </div>
+
+</ng-container>

@@ -1,0 +1,89 @@
+<nav class="navbar navbar-light bg-info">
+    <h3>Result Managment System</h3>
+</nav>
+<div class="container-fluid">
+    <div class="d-flex" style="padding-left: 75%;">
+        <button type="submit" id="addnew" class="btn btn-outline-primary my-4 mx-4" data-toggle="modal"
+           (click)="clickAddStudent()" data-target="#exampleModal">Add new Student</button>
+        <button type="button" id="logout" class="btn btn-outline-danger my-4" onclick="window.location.href = 'login'">Log Out</button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Student Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="formValue" name="stuData" class="needs-validation" ngNativeValidate #form novalidate>
+                            <div class="form-group my-3" >
+                                <label for="exampleRoleno">Roll no.</label>
+                                <input type="number" formControlName="rollno" class="form-control" placeholder="Enter Roll no." required="">
+                                <div class="invalid-feedback">
+                                    Please enter a valid value
+                                </div> 
+                            </div>
+                            <div class="form-group my-3">
+                              <label for="exampleInputText">Name</label>
+                              <input type="text" formControlName="name" class="form-control" placeholder="Enter Name" required="">
+                              <div class="invalid-feedback">
+                                Please enter a valid name.
+                              </div>
+                            </div>
+                            <div class="form-group my-3">
+                              <label for="exampleInputdate">Date of Birth</label>
+                              <input type="date" formControlName="dob" class="form-control" placeholder="Enter DOB" required="">
+                              <div class="invalid-feedback">
+                                Please enter a valid date
+                            </div>
+                            </div>
+                            <div class="form-group my-3">
+                                <label for="exampleInputnum">Score</label>
+                                <input type="number" formControlName="score" class="form-control" placeholder="Enter Score" required="" min="1" max="100">
+                                <div class="invalid-feedback">
+                                    Please enter a valid score
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" *ngIf="showAdd" ng-disabled="stuData.$invalid" (click)="form.checkValidity()? postStudentDetails() : null" class="btn btn-primary">Add Student</button>
+                                <button type="submit" *ngIf="showUpdate" ng-disabled="stuData.$invalid" (click)="form.checkValidity()? updateStudentDetails() : null" class="btn btn-primary">Update</button>
+                            </div>
+                          </form>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Roll no.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor = "let row of studentData">
+                    <th>{{row.rollno}}</th>
+                    <td>{{row.name}}</td>
+                    <td>{{row.dob}}</td>
+                    <td>{{row.score}}</td>         
+                    <td>
+                        <button type="button" data-toggle="modal" (click)="edit(row)"
+                        data-target="#exampleModal" class="btn btn-primary btn-sm mx-2">Edit</button>
+                        <button type="button" (click)="deleteStudent(row)" class="btn btn-danger btn-sm mx-2">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

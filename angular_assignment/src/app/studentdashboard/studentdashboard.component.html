@@ -1,0 +1,73 @@
+<nav class="navbar navbar-light bg-info">
+    <h3>Result Managment System</h3>
+</nav>
+<!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="vh-100 bg-image"
+        style="background-image: url('https://img.freepik.com/free-photo/back-school-background-with-school-supplies-copy-space_23-2148958977.jpg?w=2000');">
+        <div class="mask d-flex align-items-center h-100">
+
+            <div class="container">
+                <h2 class="m-3">Enter Student Details</h2>
+                <form [formGroup]="searchForm" name="stuSearch">
+                    <div class="form-group">
+                        <label for="rollno">Roll no.</label>
+                        <input type="number" formControlName="rollno" class="form-control" id="rollno"
+                            placeholder="Enter roll no..">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Date of Birth</label>
+                        <input type="date" formControlName="dob" class="form-control" id="name">
+
+                    </div>
+                    <button type="button" [disabled]="!searchForm.valid" (click)="search()" data-toggle="modal" data-target="#exampleModal" class="btn-lg btn-outline-primary m-3">Search</button>
+                    <button type="button" id="logout" class="btn-lg btn-outline-danger my-4"
+                        onclick="window.location.href = 'studentlogin'">Log Out</button>
+                </form>
+
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Student Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Roll No.</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Date of Birth</th>
+                                    <th scope="col">Score</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor = "let row of student">
+                                    <th>{{row.rollno}}</th>
+                                    <td>{{row.name}}</td>
+                                    <td>{{row.dob}}</td>
+                                    <td>{{row.score}}</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-image: url('https://th.bing.com/th/id/R.fede4fc099de12c9749b4a895bb3e852?rik=8QSTUYwSafbuZw&riu=http%3a%2f%2fcdn.elegantthemes.com%2fblog%2fwp-content%2fuploads%2f2013%2f09%2fbg-1-full.jpg&ehk=lqJF3XOyX2Q2LBsImh22NScvC7oZjrxyD%2fnLPLMWAIU%3d&risl=&pid=ImgRaw&r=0');
+  background-size: cover;
+  color: #000;
+}
+
+body {
+  
+  min-height: 100vh;
+  font-size: 1.5rem;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+  margin-bottom: 1em;
+}
+
+header {
+	display: flex;
+	position: sticky;
+	z-index: 1;
+	top: 0;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	background-color: #182639;
+	color: white;
+	box-shadow: 0px 4px 18px 1px rgb(0 0 0 / 50%),
+		0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+nav a, nav a:visited {
+  color: #fff;
+  transition: 1s;
+  text-decoration: none;
+}
+
+nav a:hover, nav a:focus {
+  transition: .6s;
+  font-size: 1.8rem;
+}
+
+main {
+  max-width: 500px;
+  margin: auto;
+}
+
+section {
+  margin-top: 1em;
+}
+
+.editblog{
+  background-color: white;
+  margin: 1em;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 1em;
+  animation: fadeInAnimation ease 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+
+article {
+  animation: fadeInAnimation ease 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  background-color: white;
+  margin: 0.5em;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 1em;
+}
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+h2{
+  cursor: default
+  
+}
+
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  font-size: 1.2rem;
+  margin: 0.5em 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  height: 200px;
+}
+
+.postCredit {
+  font-size: 1rem;
+}
+
+.heading{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+h3, .postView{
+  position: relative;
+}
+
+h3{
+  margin-bottom: 1rem;
+  color: #002e6f;
+  left: 0;
+  top: 0;
+}
+
+.postView{
+  
+  font-size: 1rem;
+  right: 0;
+  top: 0;
+}
+
+.postView a, 
+.postView a:visited {
+  transition: .5s;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.postView a:hover, 
+.postView a:focus {
+  transition: .5s;
+  border: 1px solid #182639;
+  border-radius: 5px;
+  color: white;
+  background-color: #325079;
+  text-decoration: none;
+}
+
+.time{
+  color: rgb(154, 154, 224);
+}
+
+.author{
+  color: rgba(42, 42, 42, 0.685);
+}
+
+.excerpt {
+  font-style: italic;
+}
+
+.reactionButton {
+  margin: 0 0.25em 0 0;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.editbuttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saveButton{
+  background-color: #39629b;
+  width: 140px;
+  border-color: #39629b;
+  border-radius: 3px;
+  color: white;
+  margin-right: 10px;
+}
+
+
+.saveButton:hover{
+  background-color: #213f68;
+}
+
+.deleteButton {
+  background-color: #f54781;
+  width: 140px;
+  margin-left: 10px;
+  border-color:  #f54781;
+  border-radius: 3px;
+  color: white;
+}
+
+.deleteButton:hover{
+  background-color: #d54374;
+}

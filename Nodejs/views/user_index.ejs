@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Welcome</title>
+    <style>
+        nav {
+            color: aliceblue;
+            background: #6a11cb;
+            background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+        }
+
+        table {
+            border-collapse: separate;
+            border: solid black 1px;
+            border-radius: 7px;
+        }
+        
+        td{
+            border-radius: 7px;   
+        }
+
+        td:first-child,
+        th:first-child, th:last-child, td:last-child {
+            border-right: none;
+            border-left: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <h4 style="margin: 0 auto;">
+            <%= title %>
+        </h4>
+    </nav>
+    <form class="form-inline" style="display: flex; align-items: flex-end; justify-content: right;">
+        <a class="btn btn-outline-primary mx-3 my-3" type="submit" href="/add">Add Student</a>
+        <a style="margin-right:85px;" class="btn btn-outline-danger my-3" type="submit" href="/index">Log Out</a>
+    </form>
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Roll no.</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Score</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% students.forEach(function(student){ %>
+                    <tr>
+                        <td>
+                            <%= student.rollno %>
+                        </td>
+                        <td>
+                            <%= student.stuname %>
+                        </td>
+                        <td>
+                            <%= student.dob %>
+                        </td>
+                        <td>
+                            <%= student.score %>
+                        </td>
+                        <td>
+                            <a href="edit/<%= student.id %>" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="delete/<%= student.id %>" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

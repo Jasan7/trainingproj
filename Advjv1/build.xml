@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project basedir="." default="build" name="Advjv1">
+	<property name="Tshirtsearch" value="ShirtSearch.jar"/>
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../.Net &amp; Java Software/eclipse-jee-photon-R-win32-x86_64/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+	
+    <path id="Maven Dependencies.libraryclasspath">
+        <pathelement location="../../.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar"/>
+        <pathelement location="../../.m2/repository/com/opencsv/opencsv/3.6/opencsv-3.6.jar"/>
+        <pathelement location="../../.m2/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar"/>
+    </path>
+    <path id="Advjv1.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Tshirtsearch.classpath">
+        <path refid="Advjv1.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target/classes"/>
+        <mkdir dir="target/test-classes"/>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/test-classes">
+            <fileset dir="src/test/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target/classes"/>
+        <delete dir="target/test-classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <classpath refid="Advjv1.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/test/java"/>
+            <classpath refid="Advjv1.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Tshirtsearch">
+        <java classname="AdvJava.Advjv1.Tshirtsearch" failonerror="true" fork="yes">
+            <classpath refid="run.Tshirtsearch.classpath"/>
+        </java>
+    </target>
+	 <target name ="makejar" description="Create a jar for the project">
+	     <mkdir dir="${build.dir}"/>
+	     <mkdir dir="${build.dir}/classes"/>
+	     <jar jarfile="${build.dir}/ShirtSearch.jar" basedir="${build.dir}/classes">
+	      <manifest>
+	        <attribute name = "Main-Class" value = "com"/>
+	     </manifest>
+	     </jar>
+	   </target>
+</project>

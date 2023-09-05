@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Solution</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+
+    <link rel="stylesheet" href="final.css">
+</head>
+
+<body>
+    <h2>
+        Student Enrollment Form
+    </h2>
+    <div class="container-fluid">
+
+        <div class="row">
+            <form class="form-horizontal" action="#">
+                <div class="form-left col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 col-lg-3 col-sm-2" for="name">Name</label>
+                        <div class="col-sm-7 col-xs-8 col-lg-4">
+                            <input type="name" class="form-control" id="name" name="name" required placeholder="Enter Name"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 col-lg-3 col-sm-2" for="email">Email</label>
+                        <div class="col-sm-7 col-xs-8 col-lg-4">
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="Enter Email Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 col-lg-3 col-sm-2" for="url">Website</label>
+                        <div class="col-sm-7 col-xs-8 col-lg-4">
+                            <input type="url" class="form-control" id="url" name="url" required placeholder="Enter Website Link">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 col-lg-3 col-sm-2" for="url">Image link</label>
+                        <div class="col-sm-7 col-xs-8 col-lg-4">
+                            <input type="url" class="form-control" id="imgurl" name="imgurl" required placeholder="Enter Image Link">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 col-lg-3 col-sm-2" for="radio">Gender</label>
+                        <div class="gender col-sm-3 col-xs-6 col-lg-4">
+                            <label for="male" class="radio gender"><input type="radio" name="gender" value="Male" id="male" required>Male</label>
+                            <label for="female" class="radio gender"><input type="radio" name="gender" value="Female" id="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 col-lg-3 col-sm-2" for="checkbox">Skills</label>
+                        <div class="col-sm-3 col-xs-6 col-lg-6">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="skill" value="Java" id="java"> Java</label>
+                                <label><input type="checkbox" name="skill" value="HTML" id="html"> HTML</label>
+                                <label><input type="checkbox" name="skill" value="CSS" id="css"> CSS</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="buttons col-xs-12 col-lg-6 col-sm-12">
+                            <br>
+                            <button type="submit" onclick="fn1()" type="button" class="enroll btn btn-primary">Enroll Student</button>
+                            <button onclick="del()" type="button" class="clear btn btn-danger">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="vl col-lg-1"></div>
+                <div class="form-right col-xs-12 col-sm-12 col-md-12 col-lg-5" id="form-right">
+                    <h3>Enrolled Students</h3>
+                    <div class="tables" id="tables">
+                        <table class="table" id="display">
+                            <thead>
+                              <tr>
+                                <th class="desc">Description</th>
+                                <th class="image">Image</th>
+                              </tr>
+                            </thead>          
+                          </table>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <h4>
+        Copyright 2020-2021 by Fresher Training
+    </h4>
+
+
+    <script src="final.js"></script>
+</body>
+
+</html>

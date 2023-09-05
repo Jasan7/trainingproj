@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "rollno": 1,
+      "name": "Jasan",
+      "score": 76,
+      "dob": "2022-07-01"
+    },
+    {
+      "id": 4,
+      "rollno": 2,
+      "name": "adadada",
+      "score": 79,
+      "dob": "2022-07-21"
+    },
+    {
+      "rollno": 3,
+      "name": "test",
+      "score": 89,
+      "dob": "2022-07-22",
+      "id": 5
+    },
+    {
+      "rollno": 4,
+      "name": "teststu",
+      "score": 67,
+      "dob": "2022-07-08",
+      "id": 6
+    }
+  ],
+  "teachers": [
+    {
+      "email": "sjasandeep7@gmail.com",
+      "password": "jasandeep",
+      "id": 1
+    },
+    {
+      "email": "abcd@gmail.com",
+      "password": "abcd",
+      "id": 2
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "test",
+      "id": 4
+    },
+    {
+      "email": "newuser@gmail.com",
+      "password": "newuser",
+      "id": 3
+    }
+  ],
+  "students": [
+    {
+      "email": "student1@gmail.com",
+      "password": "student1",
+      "id": 1
+    },
+    {
+      "email": "student2@gmail.com",
+      "password": "student2",
+      "id": 1
+    },
+    {
+      "email": "student3@gmail.com",
+      "password": "student3",
+      "id": 1
+    }
+  ]
+}

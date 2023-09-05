@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "title": "First",
+      "body": "first blog",
+      "userId": "1",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Second blog",
+      "body": "second blog-updated\n",
+      "userId": 7,
+      "reactions": {
+        "like": 1
+      }
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

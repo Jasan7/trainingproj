@@ -1,0 +1,265 @@
+html, body{
+    padding: 0%;
+    margin: 0%;
+    overflow-x: hidden;
+}
+
+h2{
+    font-size: 26px;
+    width: 100%;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #2de9bd;
+	margin: 0;
+	height: 8vh;
+	color: #fff;
+	border-bottom: 1px solid black;
+}
+
+h4{
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #2de9bd;
+	margin: 0;
+	height: 4vh;
+	color: #fff;
+	border-top: 1px solid black;
+}
+
+.row{
+    height: 88vh;
+}
+
+.form-left{
+    padding-top: 70px;
+    
+}
+.tables{
+    padding-top: 50px;
+
+}
+
+.form-right h3{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding-right: 50px;
+}
+
+.control-label{
+    margin-left: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.gender{
+    margin-left: 10px;
+    font-weight: lighter; 
+}
+
+.vl{
+    margin-top: 7vh;
+    border-left: 3px solid #2de9bd;
+    height: 400px;
+}
+
+.buttons{
+    margin-left: 3.6vw;
+}
+
+
+.desc{
+    width: 72%;
+}
+
+.image{
+    width: 28%;
+}
+
+img{
+    width: 100%;  
+    height: 16vh;
+}
+
+.enroll{
+    background-color: #007BFF;
+    height: 40px;
+    width: 10vw;
+}
+
+.clear{
+    background-color: #DC3545;
+    height: 40px;
+    width: 5vw;
+}
+
+
+button{
+   margin-left: 20px;
+}
+
+table, th, td{
+    color: #fff;
+    border: 2px solid #A7C93F;
+}
+
+th{
+    background-color: #A7C941;
+    font-size: 15px;
+    color: #fff;
+    border: 2px solid #A5B766;
+}
+
+.control-label:after {
+    content:" *";
+    color: red;
+  }
+
+td {
+    color: black;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+#tables{
+    margin-right: 50px;
+    height: 70vh;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+@media (min-width: 800px) and (max-width: 1199px) {
+    .vl {
+      display: none;
+    }
+    .form-left{
+        height: auto;
+    }
+    .form-right h3{
+        padding-right: 0%;
+    }
+    .enroll{
+        font-size: 10px;
+        width: 25%;
+    }
+    .clear{
+        width: 20%;
+    }
+    #tables{
+        width: 85vw;
+        margin-left: 8vw;
+    }
+  
+    .image{
+        width: 10vw;
+    }
+    .desc{
+        width: 90vw;
+    }
+    img{
+        width: 15vw; 
+        height: 15vh; 
+    }
+    
+  }
+
+
+  @media (min-width: 375px) and (max-width: 800px) {
+    .vl {
+      display: none;
+    }
+    .form-left{
+        height: auto;
+    }
+    .form-right h3{
+        padding-right: 0%;
+    }
+    .enroll{
+        font-size: 10px;
+        width: 25%;
+    }
+    .clear{
+        width: 20%;
+    }
+    #tables{
+        width: 70vw;
+        margin-left: 13vw;
+    }
+    .desc{
+        width: 80%;
+    }
+    img{
+        width: 15vw; 
+        height: 15vh; 
+    }
+    
+  }
+
+  @media (min-width: 281px) and (max-width: 375px) {
+    .vl {
+      display: none;
+    }
+    .form-left{
+        height: auto;
+    }
+    .form-right h3{
+        padding-right: 0%;
+    }
+    .enroll{
+        font-size: 9px;
+        width: 33%;
+    }
+    .clear{
+        width: 23%;
+    }
+    #tables{
+        margin-right: 0;
+    }
+    img{
+        width: 22vw; 
+        height: 16vh; 
+    }
+
+  }
+
+  @media (min-width: 0px) and (max-width: 280px) {
+    .vl {
+      display: none;
+    }
+    .form-left{
+        height: auto;
+    }
+    .form-right h3{
+        padding-right: 0%;
+    }
+    .enroll{
+        font-size: 9px;
+        width: 35%;
+    }
+    .clear{
+        width: 25%;
+    }
+    #tables{
+        margin-right: 0;
+    }
+
+  }
+  
